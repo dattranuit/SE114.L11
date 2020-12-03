@@ -1,15 +1,12 @@
 package com.dattranuit.uitapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
@@ -20,8 +17,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,7 +25,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     public EditText edt_usr = null; //= (EditText) findViewById(R.id.username);
     public EditText edt_pass = null;//(EditText) findViewById(R.id.password);
@@ -40,14 +35,10 @@ public class MainActivity extends AppCompatActivity {
     public String ten = "";
     public String usr ="";
     public String pas ="";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        //Intent intent = new Intent(this, LoginActivity.class);
-       // startActivity(intent);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         edt_usr = (EditText) findViewById(R.id.username);
         edt_pass = (EditText) findViewById(R.id.password);
         pgbar = (ProgressBar) findViewById(R.id.progressBar);
@@ -57,26 +48,13 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!edt_usr.getText().toString().isEmpty()){
-                    usr = edt_usr.getText().toString();
-                }
-                else {
-                    edt_usr.setError("Username is required!!!");
-                    return;
-                }
-                if(!edt_pass.getText().toString().isEmpty()){
-                    pas = edt_pass.getText().toString();
-                }
-                else {
-                    edt_pass.setError("Password is required!!!");
-                    return;
-                }
-                MainActivity.Login login = new Login();
+                Login login = new Login();
                 login.execute();
+
             }
         });
-
     }
+
     public  void LoadViewView() {
         final WebView webView = findViewById(R.id.webview);
 
@@ -116,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 if (message.startsWith("captchatoken:"))
                 {
                     token = message.substring(13); // removing 'captchatoken:' part from console message
-//                    usr = edt_usr.getText().toString();
-//                    pas = edt_usr.getText().toString();
+                    //usr = edt_usr.getText().toString();
+                    //pas = edt_usr.getText().toString();
                     // now this token can be used in a POST request for logging in
                     //textView.setText("token: " + token);
                 }
@@ -132,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         //findViewById(R.id.).setVisibility(!isShow ? View.VISIBLE : View.GONE);
     }
 
-    private class Login extends AsyncTask<Void, Void, Void> {
+    private class Login extends AsyncTask<Void, Void, Void>{
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -150,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
                         .data("g-recaptcha-response", token)
                         .execute();
                 ck = res.cookies();
-                Log.d("Test", usr + "\t" + pas + "\t" + token + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
@@ -162,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
                         .execute();
                 Document document = res.parse();
                 Elements result = document.select("div.field-items");
-                Log.d("Jsoup", document.toString());
                 if(result.size() == 0)
                     return null;
                 Log.d("elements size", Integer.toString(result.size()));
@@ -182,16 +158,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(aVoid);
             //Toast.makeText()
             //return 1;
-
-            if(ten.contains(usr) && !ten.isEmpty()){
-                Toast.makeText(MainActivity.this, ten, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                startActivity(intent);
-                finish();
-            }
-            else{
-                Toast.makeText(MainActivity.this, "Đăng nhập thất bại!", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(LoginActivity.this, "ten", Toast.LENGTH_LONG).show();
         }
     }
 }
