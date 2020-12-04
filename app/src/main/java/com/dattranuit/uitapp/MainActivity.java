@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public String ten = "";
     public String usr ="";
     public String pas ="";
+    public Map<String, String> ck = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,13 +74,14 @@ public class MainActivity extends AppCompatActivity {
                     edt_pass.setError("Password is required!!!");
                     return;
                 }
-                MainActivity.Login login = new Login();
+                Login login = new Login();
                 login.execute();
             }
         });
 
     }
     public  void LoadViewView() {
+        final long cur = System.currentTimeMillis();
         final WebView webView = findViewById(R.id.webview);
 
         webView.getSettings().setJavaScriptEnabled(true);
@@ -105,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                         "$('body').css('background-color','transparent');" + // for aesthetic purposes
                         "}");
                 webView.setVisibility(View.VISIBLE); // show the webview now since captcha is ready
+                Log.d("Time webview", Long.toString(System.currentTimeMillis() - cur));
             }
         });
         webView.setWebChromeClient(new WebChromeClient()
@@ -138,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             String url = "https://daa.uit.edu.vn/";
             Connection.Response res = null;
-            Map<String, String> ck = null;
+
             try {
                 res = Jsoup.connect(url)
                         .method(Connection.Method.POST)
@@ -150,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                         .data("g-recaptcha-response", token)
                         .execute();
                 ck = res.cookies();
-                Log.d("Test", usr + "\t" + pas + "\t" + token + "\n");
+                //Log.d("Test", usr + "\t" + pas + "\t" + token + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
@@ -162,12 +167,12 @@ public class MainActivity extends AppCompatActivity {
                         .execute();
                 Document document = res.parse();
                 Elements result = document.select("div.field-items");
-                Log.d("Jsoup", document.toString());
+                //Log.d("Jsoup", document.toString());
                 if(result.size() == 0)
                     return null;
-                Log.d("elements size", Integer.toString(result.size()));
+                //Log.d("elements size", Integer.toString(result.size()));
                 ten = result.get(1).text();
-                Log.d("name ","Tien trinh :" + ten);
+                //Log.d("name ","Tien trinh :" + ten);
 
             } catch (IOException e) {
 
@@ -185,7 +190,10 @@ public class MainActivity extends AppCompatActivity {
 
             if(ten.contains(usr) && !ten.isEmpty()){
                 Toast.makeText(MainActivity.this, ten, Toast.LENGTH_SHORT).show();
+                Bundle bundlecookie = new Bundle();
+                bundlecookie.putSerializable("Cookies", (Serializable) ck); // Send cookie to other activity
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                intent.putExtras(bundlecookie);
                 startActivity(intent);
                 finish();
             }

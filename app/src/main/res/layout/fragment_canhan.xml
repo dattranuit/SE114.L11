@@ -24,24 +24,97 @@
         android:id="@+id/hovaten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="75dp"
         android:text="Nguyen Van A"
         android:textColor="#FF0000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/MSSV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:text="1852xxxx | Sinh vien"
         android:textColor="#0004FF"
-        android:textSize="10sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hovaten" />
+
+    <TextView
+        android:id="@+id/mail"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:text="Mail"
+        android:textAlignment="center"
+        android:textColor="#0004FF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MSSV" />
+
+    <TextView
+        android:id="@+id/birthday"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:drawableLeft="@drawable/ic_baseline_cake_24"
+        android:text="01/01/1970"
+        android:textAlignment="center"
+        android:textColor="#0004FF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail" />
+
+    <TextView
+        android:id="@+id/class_name"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:drawableLeft="@drawable/ic_baseline_apartment_24"
+        android:text="Class"
+        android:textAlignment="center"
+        android:textColor="#0004FF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/department" />
+
+    <TextView
+        android:id="@+id/department"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:drawableLeft="@drawable/ic_baseline_local_movies_24"
+        android:gravity="center"
+        android:text="Department"
+        android:textAlignment="center"
+        android:textColor="#0004FF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthday" />
+
+    <TextView
+        android:id="@+id/hedt"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:drawableLeft="@drawable/ic_baseline_directions_run_24"
+        android:text="HeDT"
+        android:textAlignment="center"
+        android:textColor="#0004FF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/class_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
