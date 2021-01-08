@@ -1,6 +1,8 @@
 package com.dattranuit.uitapp;
 
-public class SinhVien {
+import java.io.Serializable;
+
+public class SinhVien implements Serializable {
 
     private String HoTen;
     private String NgaySinh;

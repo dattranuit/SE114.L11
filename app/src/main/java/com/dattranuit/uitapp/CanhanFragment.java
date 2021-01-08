@@ -43,7 +43,6 @@ public class CanhanFragment extends Fragment {
             khoa.setText(bundle.getString("Khoa"));
             lop.setText(bundle.getString("LopSH"));
             hedt.setText(bundle.getString("HeDT"));
-
         }
         return view;
     }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <TextView
+            android:drawableLeft="@drawable/ic_baseline_timer_24"
+            android:id="@+id/ngaythi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày thi: 11/01/2021"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/contentlichthi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ca 3 (13h30): SS010.L13 (Lịch sử Đảng Cộng sản Việt Nam), Phòng C312"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <TextView
+
+            android:id="@+id/title_thongbao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thông báo học bù Phương pháp Phát triển phần mềm hướng đối tượng (SE100.L11) ngày 06/01/2021"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/content_thongbao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trường Đại học CNTT thông báo đến sinh viên 1852xxxx lịch học bù môn phương pháp phát triển phần mềm hướng đối tượng vào thứ 4 ngày 06 tháng 01 năm 2021.Từ tiết 6 đến tiết 9 tại phòng B1.20."
+            android:textSize="13sp"
+            android:textColor="#000000"
+            />
+        <TextView
+            android:id="@+id/post_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="T3, 08/12/2020 - 15:13"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:textColor="#000000"
+            />
+    </LinearLayout>
+
+</LinearLayout>

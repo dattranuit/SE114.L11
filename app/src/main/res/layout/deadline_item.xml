@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mon Hoc"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Content"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thoi gian"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+            />
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_hourglass_empty_24"
+            android:text="Trang thai"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            />
+        <TextView
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Da nop bai"
+            android:drawableLeft="@drawable/ic_baseline_check_circle_24"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            />
+
+        <Button
+            android:id="@+id/btn_view"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ff0000"
+            android:text="Xem"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+</LinearLayout>

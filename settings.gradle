@@ -1,2 +1,3 @@
+include ':json-simple-1.1'
 include ':app'
 rootProject.name = "UITApp"
